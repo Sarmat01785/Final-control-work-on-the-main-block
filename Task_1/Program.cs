@@ -30,6 +30,25 @@ class Program
 
         string[] newArray = new string[originalArray.Length];
 
+        int newIndex = 0;
+        for (int i = 0; i < originalArray.Length; i++)
+        {
+            if (originalArray[i].Length <= 3)
+            {
+                newArray[newIndex] = originalArray[i];
+                newIndex++;
+            }
+        }
 
-
-
+        if (newIndex == 0)
+        {
+            Console.WriteLine("Нет строк длиной меньше или равной 3 символам.");
+        }
+        else
+        {
+            Array.Resize(ref newArray, newIndex);
+            Console.WriteLine("Новый массив:");
+            Console.WriteLine(string.Join(", ", newArray));
+        }
+    }
+}
