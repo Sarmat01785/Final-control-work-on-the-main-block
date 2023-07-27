@@ -18,37 +18,37 @@
 
 
 
-using System;
+using System; // подключение пространства имен System
 
-class Program
+class Program  // объявление класса Program
 {
-    static void Main(string[] args)
+    static void Main(string[] args) // объявление метода Main с массивом аргументов args
     {
-        Console.WriteLine("Введите элементы массива через запятую:");
-        string input = Console.ReadLine();
-        string[] originalArray = input.Split(',');
+        Console.WriteLine("Введите элементы массива через запятую:"); // вывод на консоль сообщения для пользователя
+        string input = Console.ReadLine(); // объявление переменной input и присваивание ей значения, введенного пользователем с консоли
+        string[] originalArray = input.Split(','); // объявление массива originalArray и инициализация его значениями, полученными из строки input с помощью метода Split, который разбивает
 
-        string[] newArray = new string[originalArray.Length];
+        string[] newArray = new string[originalArray.Length]; // объявление нового массива newArray с размером, равным длине массива originalArray
 
-        int newIndex = 0;
-        for (int i = 0; i < originalArray.Length; i++)
+        int newIndex = 0;  // объявление переменной newIndex и присваивание ей значения 0
+        for (int i = 0; i < originalArray.Length; i++) // начало цикла for, который будет выполняться для каждого элемента массива originalArray
         {
-            if (originalArray[i].Length <= 3)
+            if (originalArray[i].Length <= 3) // проверка, что длина текущего элемента массива меньше или равна 3
             {
-                newArray[newIndex] = originalArray[i];
-                newIndex++;
+                newArray[newIndex] = originalArray[i]; // присваивание новому массиву значения текущего элемента массива originalArray
+                newIndex++;  // увеличение переменной newIndex на 1
             }
         }
 
-        if (newIndex == 0)
+        if (newIndex == 0) // проверка, что новый массив пустой
         {
-            Console.WriteLine("Нет строк длиной меньше или равной 3 символам.");
+            Console.WriteLine("Нет строк длиной меньше или равной 3 символам."); // вывод на консоль сообщения для пользователя
         }
-        else
+        else   // если новый массив не пустой
         {
-            Array.Resize(ref newArray, newIndex);
-            Console.WriteLine("Новый массив:");
-            Console.WriteLine(string.Join(", ", newArray));
+            Array.Resize(ref newArray, newIndex); // изменение размера нового массива на значение переменной newIndex
+            Console.WriteLine("Новый массив:");   // вывод на консоль сообщения для пользователя
+            Console.WriteLine(string.Join(", ", newArray));  // объединение элементов массива в строку с разделителем запятая и вывод этой строки на консоль
         }
     }
 }
